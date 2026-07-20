@@ -1,0 +1,232 @@
+[
+  {
+    "app": "Google Primer",
+    "category": "BUSINESS",
+    "category_label": "\u0bb5\u0ba3\u0bbf\u0b95\u0bae\u0bcd",
+    "size_mb": 18.0,
+    "rating": 4.4,
+    "installs": 10000000,
+    "reviews": 62272,
+    "subjectivity": 0.675
+  },
+  {
+    "app": "Call Blocker",
+    "category": "BUSINESS",
+    "category_label": "\u0bb5\u0ba3\u0bbf\u0b95\u0bae\u0bcd",
+    "size_mb": 3.2,
+    "rating": 4.6,
+    "installs": 5000000,
+    "reviews": 188841,
+    "subjectivity": 0.655
+  },
+  {
+    "app": "CallApp: Caller ID, Blocker & Phone Call Recorder",
+    "category": "COMMUNICATION",
+    "category_label": "COMMUNICATION",
+    "size_mb": 20.0,
+    "rating": 4.4,
+    "installs": 10000000,
+    "reviews": 483565,
+    "subjectivity": 0.506
+  },
+  {
+    "app": "Caller ID +",
+    "category": "COMMUNICATION",
+    "category_label": "COMMUNICATION",
+    "size_mb": 0.12,
+    "rating": 4.0,
+    "installs": 1000000,
+    "reviews": 9498,
+    "subjectivity": 0.6
+  },
+  {
+    "app": "Hily: Dating, Chat, Match, Meet & Hook up",
+    "category": "DATING",
+    "category_label": "Dating (Partnersuche)",
+    "size_mb": 56.0,
+    "rating": 4.1,
+    "installs": 100000,
+    "reviews": 2556,
+    "subjectivity": 0.555
+  },
+  {
+    "app": "CMB Free Dating App",
+    "category": "DATING",
+    "category_label": "Dating (Partnersuche)",
+    "size_mb": 40.0,
+    "rating": 4.0,
+    "installs": 1000000,
+    "reviews": 48845,
+    "subjectivity": 0.542
+  },
+  {
+    "app": "FlirtChat - \u2665Free Dating/Flirting App\u2665",
+    "category": "DATING",
+    "category_label": "Dating (Partnersuche)",
+    "size_mb": 13.0,
+    "rating": 4.3,
+    "installs": 500000,
+    "reviews": 2430,
+    "subjectivity": 0.511
+  },
+  {
+    "app": "Hitwe - meet people and chat",
+    "category": "DATING",
+    "category_label": "Dating (Partnersuche)",
+    "size_mb": 21.0,
+    "rating": 4.2,
+    "installs": 10000000,
+    "reviews": 243950,
+    "subjectivity": 0.694
+  },
+  {
+    "app": "2Date Dating App, Love and matching",
+    "category": "DATING",
+    "category_label": "Dating (Partnersuche)",
+    "size_mb": 8.1,
+    "rating": 4.4,
+    "installs": 500000,
+    "reviews": 41605,
+    "subjectivity": 0.558
+  },
+  {
+    "app": "Amazon Prime Video",
+    "category": "ENTERTAINMENT",
+    "category_label": "ENTERTAINMENT",
+    "size_mb": 24.0,
+    "rating": 4.2,
+    "installs": 50000000,
+    "reviews": 411683,
+    "subjectivity": 0.556
+  },
+  {
+    "app": "Cooking Channel",
+    "category": "ENTERTAINMENT",
+    "category_label": "ENTERTAINMENT",
+    "size_mb": 16.0,
+    "rating": 4.1,
+    "installs": 100000,
+    "reviews": 1033,
+    "subjectivity": 0.534
+  },
+  {
+    "app": "Block Puzzle",
+    "category": "GAME",
+    "category_label": "GAME",
+    "size_mb": 7.8,
+    "rating": 4.6,
+    "installs": 5000000,
+    "reviews": 59800,
+    "subjectivity": 0.537
+  },
+  {
+    "app": "Granny",
+    "category": "GAME",
+    "category_label": "GAME",
+    "size_mb": 59.0,
+    "rating": 4.5,
+    "installs": 50000000,
+    "reviews": 1135631,
+    "subjectivity": 0.556
+  },
+  {
+    "app": "Flow Free",
+    "category": "GAME",
+    "category_label": "GAME",
+    "size_mb": 11.0,
+    "rating": 4.3,
+    "installs": 100000000,
+    "reviews": 1295557,
+    "subjectivity": 0.52
+  },
+  {
+    "app": "Cut the Rope FULL FREE",
+    "category": "GAME",
+    "category_label": "GAME",
+    "size_mb": 49.0,
+    "rating": 4.4,
+    "installs": 100000000,
+    "reviews": 2123381,
+    "subjectivity": 0.57
+  },
+  {
+    "app": "Color by Number \u2013 New Coloring Book",
+    "category": "GAME",
+    "category_label": "GAME",
+    "size_mb": 24.0,
+    "rating": 4.7,
+    "installs": 5000000,
+    "reviews": 141529,
+    "subjectivity": 0.54
+  },
+  {
+    "app": "Draw In",
+    "category": "GAME",
+    "category_label": "GAME",
+    "size_mb": 73.0,
+    "rating": 4.2,
+    "installs": 10000000,
+    "reviews": 46416,
+    "subjectivity": 0.583
+  },
+  {
+    "app": "Honkai Impact 3rd",
+    "category": "GAME",
+    "category_label": "GAME",
+    "size_mb": 82.0,
+    "rating": 4.7,
+    "installs": 1000000,
+    "reviews": 59017,
+    "subjectivity": 0.524
+  },
+  {
+    "app": "Dude Perfect 2",
+    "category": "GAME",
+    "category_label": "GAME",
+    "size_mb": 70.0,
+    "rating": 4.5,
+    "installs": 10000000,
+    "reviews": 401425,
+    "subjectivity": 0.536
+  },
+  {
+    "app": "Candy Bomb",
+    "category": "GAME",
+    "category_label": "GAME",
+    "size_mb": 20.0,
+    "rating": 4.4,
+    "installs": 10000000,
+    "reviews": 42145,
+    "subjectivity": 0.606
+  },
+  {
+    "app": "1LINE \u2013 One Line with One Touch",
+    "category": "GAME",
+    "category_label": "GAME",
+    "size_mb": 10.0,
+    "rating": 4.6,
+    "installs": 10000000,
+    "reviews": 214878,
+    "subjectivity": 0.557
+  },
+  {
+    "app": "Blogger",
+    "category": "SOCIAL",
+    "category_label": "SOCIAL",
+    "size_mb": 2.7,
+    "rating": 3.7,
+    "installs": 5000000,
+    "reviews": 138026,
+    "subjectivity": 0.52
+  },
+  {
+    "app": "Four In A Line",
+    "category": "GAME",
+    "category_label": "GAME",
+    "size_mb": 3.0,
+    "rating": 3.8,
+    "installs": 1000000,
+    "reviews": 22191,
+    "subjectivity": 0.549
+  }
+]

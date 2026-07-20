@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Play Store Analytics — Multi-Chart Dashboard</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/plotly.js/2.27.0/plotly.min.js"></script>
+<style>
+  :root{
+    --bg: #0f1115;
+    --panel: #171a21;
+    --panel-border: #262b36;
+    --text: #e8eaed;
+    --muted: #8b93a1;
+    --accent-line: #7c9cff;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--text);
+    font-family:'Segoe UI', Roboto, -apple-system, sans-serif;
+    padding:28px 16px 60px;
+  }
+  .page{ max-width:1080px; margin:0 auto; }
+  .page-header{ text-align:center; margin-bottom:28px; }
+  .page-header h1{ font-size:1.7rem; margin:0 0 6px; }
+  .page-header .sub{ color:var(--muted); font-size:.92rem; }
+  .master-clock{
+    text-align:center; font-size:.85rem; color:var(--muted); margin-bottom:30px;
+    display:flex; align-items:center; justify-content:center; gap:8px;
+  }
+  .dot{ width:8px; height:8px; border-radius:50%; background:var(--accent-line); }
+  .chart-section{
+    background:var(--panel);
+    border:1px solid var(--panel-border);
+    border-radius:12px;
+    padding:22px 24px;
+    margin-bottom:26px;
+  }
+  .chart-section h2{ font-size:1.15rem; margin:0 0 4px; }
+  .chart-section .desc{ color:var(--muted); font-size:.85rem; margin-bottom:12px; }
+  .status-line{
+    font-size:.78rem; color:var(--muted); margin-bottom:10px;
+    display:flex; align-items:center; gap:8px;
+  }
+  .status-dot{ width:7px; height:7px; border-radius:50%; }
+  .status-dot.live{ background:#4fd1c5; }
+  .status-dot.hidden{ background:#e05d5d; }
+  .plot-holder{ position:relative; min-height:440px; }
+  .plot-div{ width:100%; height:440px; }
+  .gate{
+    display:none; flex-direction:column; align-items:center; justify-content:center;
+    height:440px; text-align:center; color:var(--muted); gap:8px;
+  }
+  .gate .big{ font-size:1.05rem; color:var(--text); font-weight:600; }
+  .legend-note{ font-size:.76rem; color:var(--muted); margin-top:12px; line-height:1.5; }
+  footer{ margin-top:20px; font-size:.75rem; color:var(--muted); text-align:center; }
+  select.cat-select{
+    background:#20242e; color:var(--text); border:1px solid var(--panel-border);
+    border-radius:6px; padding:6px 10px; font-size:.85rem; margin-bottom:12px;
+  }
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="page-header">
+    <h1>Google Play Store — Analytics Dashboard</h1>
+    <div class="sub">6 filtered visualizations, each visible only during its own IST time window</div>
+  </div>
+  <div class="master-clock"><span class="dot"></span><span id="masterClock">Loading current IST time…</span></div>
+
+  <!-- CHART 1 -->
+  <div class="chart-section" id="section-1" data-start="15" data-end="17">
+    <h2>1. Avg Rating &amp; Total Reviews — Top Categories</h2>
+    <div class="desc">Grouped bar · top 10 categories by installs, size ≥ 10MB, updated in January, avg rating ≥ 4.0 · visible 3–5 PM IST</div>
+    <div class="status-line"><span class="status-dot" id="dot-1"></span><span id="status-1"></span></div>
+    <div class="plot-holder">
+      <div class="plot-div" id="plot-1"></div>
+      <div class="gate" id="gate-1"><div class="big">📊 Available only between 3:00 PM – 5:00 PM IST</div><div>Check back during that window.</div></div>
+    </div>
+    <div class="legend-note">Left bars = average rating (0–5). Right bars = total review count.</div>
+  </div>
+
+  <!-- CHART 2 -->
+  <div class="chart-section" id="section-2" data-start="18" data-end="20">
+    <h2>2. Global Installs by Category — Choropleth</h2>
+    <div class="desc">Top 5 categories (excluding those starting with A, C, G, S), highlighting categories exceeding 1M installs · visible 6–8 PM IST</div>
+    <div class="status-line"><span class="status-dot" id="dot-2"></span><span id="status-2"></span></div>
+    <div class="plot-holder">
+      <div>
+        <select class="cat-select" id="cat2-select"></select>
+      </div>
+      <div class="plot-div" id="plot-2"></div>
+      <div class="gate" id="gate-2"><div class="big">🗺️ Available only between 6:00 PM – 8:00 PM IST</div><div>Check back during that window.</div></div>
+    </div>
+    <div class="legend-note">This dataset has no per-country install breakdown, so each category's total installs figure is applied uniformly across all countries to visualize relative scale on a world map. Categories exceeding 1M installs are shown with a "Highlighted" badge.</div>
+  </div>
+
+  <!-- CHART 3 -->
+  <div class="chart-section" id="section-3" data-start="13" data-end="14">
+    <h2>3. Free vs Paid — Avg Installs &amp; Revenue</h2>
+    <div class="desc">Dual-axis · top 3 categories, installs ≥ 10,000, revenue ≥ $10,000 (paid), Android &gt; 4.0, size &gt; 15M, rating "Everyone", app name ≤ 30 chars · visible 1–2 PM IST</div>
+    <div class="status-line"><span class="status-dot" id="dot-3"></span><span id="status-3"></span></div>
+    <div class="plot-holder">
+      <div class="plot-div" id="plot-3"></div>
+      <div class="gate" id="gate-3"><div class="big">💰 Available only between 1:00 PM – 2:00 PM IST</div><div>Check back during that window.</div></div>
+    </div>
+    <div class="legend-note">Bars (left axis) = average installs. Line (right axis) = average revenue ($).</div>
+  </div>
+
+  <!-- CHART 4 -->
+  <div class="chart-section" id="section-4" data-start="18" data-end="21">
+    <h2>4. Installs Trend Over Time by Category</h2>
+    <div class="desc">Line chart · categories starting with E/C/B, app name not starting x/y/z or containing "S", reviews &gt; 500 · shaded where MoM growth &gt; 20% · visible 6–9 PM IST</div>
+    <div class="status-line"><span class="status-dot" id="dot-4"></span><span id="status-4"></span></div>
+    <div class="plot-holder">
+      <div class="plot-div" id="plot-4" style="height:480px;"></div>
+      <div class="gate" id="gate-4"><div class="big">📈 Available only between 6:00 PM – 9:00 PM IST</div><div>Check back during that window.</div></div>
+    </div>
+    <div class="legend-note">Timeline is based on each app's "Last Updated" date (used as a proxy for install activity, since the dataset has no true historical install log). Shaded bands mark month-over-month growth above 20%. Beauty is labelled in Hindi (ब्यूटी) and Business in Tamil (வணிகம்); Dating does not appear here since it doesn't start with E, C, or B.</div>
+  </div>
+
+  <!-- CHART 5 -->
+  <div class="chart-section" id="section-5" data-start="17" data-end="19">
+    <h2>5. Size vs Rating Bubble Chart</h2>
+    <div class="desc">Bubble size = installs · rating &gt; 3.5, installs &gt; 50k, reviews &gt; 500, name excludes "S", sentiment subjectivity &gt; 0.5 · visible 5–7 PM IST</div>
+    <div class="status-line"><span class="status-dot" id="dot-5"></span><span id="status-5"></span></div>
+    <div class="plot-holder">
+      <div class="plot-div" id="plot-5"></div>
+      <div class="gate" id="gate-5"><div class="big">🫧 Available only between 5:00 PM – 7:00 PM IST</div><div>Check back during that window.</div></div>
+    </div>
+    <div class="legend-note">Game category highlighted in pink. Beauty shown in Hindi (ब्यूटी), Business in Tamil (வணிகம்), Dating in German (Partnersuche) where present. Sentiment subjectivity is averaged per app from User_Reviews.csv, so only apps with review-sentiment data available can appear here.</div>
+  </div>
+
+  <!-- CHART 6 -->
+  <div class="chart-section" id="section-6" data-start="16" data-end="18">
+    <h2>6. Cumulative Installs — Stacked Area by Category</h2>
+    <div class="desc">Categories starting with T/P, rating ≥ 4.2, name has no digits, reviews &gt; 1,000, size 20–80MB · visible 4–6 PM IST</div>
+    <div class="status-line"><span class="status-dot" id="dot-6"></span><span id="status-6"></span></div>
+    <div class="plot-holder">
+      <div class="plot-div" id="plot-6" style="height:480px;"></div>
+      <div class="gate" id="gate-6"><div class="big">🏔️ Available only between 4:00 PM – 6:00 PM IST</div><div>Check back during that window.</div></div>
+    </div>
+    <div class="legend-note">Travel & Local labelled in French (Voyages et Local), Productivity in Spanish (Productividad), Photography in Japanese (写真). Markers flag months where a category's month-over-month installs grew more than 25%.</div>
+  </div>
+
+  <footer>Data source: Google Play Store dataset (Play_Store_Data.csv, User_Reviews.csv) · Rendered client-side with Plotly.js</footer>
+</div>
+
+<script src="data_blob.js"></script>
+<script src="dashboard.js"></script>
+</body>
+</html>

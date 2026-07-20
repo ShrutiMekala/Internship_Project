@@ -1,0 +1,32 @@
+{
+  "GAME": {
+    "Free": {
+      "avg_installs": 33194895.83,
+      "avg_revenue": 0.0
+    },
+    "Paid": {
+      "avg_installs": 67142.86,
+      "avg_revenue": 276471.43
+    }
+  },
+  "FAMILY": {
+    "Free": {
+      "avg_installs": 6423556.7,
+      "avg_revenue": 0.0
+    },
+    "Paid": {
+      "avg_installs": 361666.67,
+      "avg_revenue": 597216.67
+    }
+  },
+  "TOOLS": {
+    "Free": {
+      "avg_installs": 21482903.23,
+      "avg_revenue": 0.0
+    },
+    "Paid": {
+      "avg_installs": 100000.0,
+      "avg_revenue": 449000.0
+    }
+  }
+}
